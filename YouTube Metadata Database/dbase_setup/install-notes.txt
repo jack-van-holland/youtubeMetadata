@@ -1,0 +1,19 @@
+Soo-Yeon Kim (skim403)
+Jack Van Holland (jvanhol1)
+
+--Special Instructions--
+
+SQL files (other than setup.sql and setup-small.sql) to run:
+getChannels.sql
+getChannelsStatistics.sql
+getVideos.sql
+getVideosStatistics.sql
+getComments.sql
+getCommentsStatistics.sql
+getReplies.sql
+getRepliesStatistics.sql
+
+Please run them after running setup.sql and setup-small.sql.
+The order doesn't matter; installation syntax is the same as how one would run setup.sql.
+
+Additionally, to be able to query special characters (on the command-line, does not work with php/html), please login with "mysql -h dbase.cs.jhu.edu -u *username* -D *database* -p", enter the password, and run the command "charset utf8;". While the text is already stored in utf8 with the setup, this is necessary for the queries to use this as well. While still logged in, we recommend trying some queries with special characters to test this functionality, since the php did not allow special characters.

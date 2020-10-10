@@ -1,0 +1,40 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <body>
+    <h2>Query Replies</h2>
+    <form action="home.html" method="post">
+      <input type='submit' value='Return to Home'/>
+    </form>
+    <h3>Filter By:</h3>
+    <form action="submitReplies.php" method="post">
+      Maximum Number of Results to Retrieve: <input type='number' name='MAX_RESULTS'>
+      <br>
+      <br>
+      Must Contain the Following Reply Comment ID: <input type='text' name='REPLY_COMMENT_ID'>
+      <br>
+      <br>
+      Must be a Reply of the Following Original Comment ID: <input type='text' name='ORIGINAL_COMMENT_ID'>
+      <h3>Sort By:</h3>
+      <input type='radio' name='SORT' value='Reply Comment ID' checked='checked'>Reply Comment ID
+      <br>
+      <input type='radio' name='SORT' value='Original Comment ID'>Original Comment ID
+      <br>
+      <br>
+      <input type='radio' name='SORT_DIR' value='Ascending' checked='checked'>Sort Ascending
+      <input type='radio' name='SORT_DIR' value='Descending'>Sort Descending
+      <br>
+      <h3>Include Summary Statistics:</h3>
+      <input type='checkbox' name='GET_COUNT' value='TRUE'>Result Count
+      <br>
+      <input type='checkbox' name='GET_PER' value='TRUE'>Result Count as Percentage of Total
+      <br>
+      <h3>Include Columns:</h3>
+      <input type='checkbox' name='GET_REPLY_COMMENT_ID' value='TRUE'>Reply Comment ID
+      <br>
+      <input type='checkbox' name='GET_ORIGINAL_COMMENT_ID' value='TRUE'>Original Comment ID
+      <br>
+      <br>
+      <input type='submit' value='Submit Query'/>
+    </form>
+  </body>
+</html>

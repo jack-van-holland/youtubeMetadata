@@ -1,0 +1,289 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <body>
+    <h2>Query Videos</h2>
+    <form action="home.html" method="post">
+      <input type='submit' value='Return to Home'/>
+    </form>
+    <h3>Filter By:</h3>
+    <form action="submitVideos.php" method="post">
+      Maximum Number of Results to Retrieve: <input type='number' name="MAX_RESULTS"/>
+      <br>
+      <br>
+      Must Contain the Following Video ID: <input type='text' name="VIDEO_ID"/>
+      <br>
+      <br>
+      Must be Posted by Author with Channel ID: <input type='text' name="AUTH_ID"/>
+      <br>
+      <br>
+      <text>Title:</text>
+      <br>
+      &emsp; Containing: <input type='text' name="TITLE_CONTAIN"/>
+      <br>
+      &emsp; Not Containing: <input type='text' name="TITLE_NOT_CONTAIN"/>
+      <br>
+      &emsp; Length Exceeding: <input type='number' name="TITLE_EXCEED"/> Characters
+      <br>
+      &emsp; Length Less Than: <input type='number' name="TITLE_LESS"/> Characters
+      <br>
+      &emsp; All-Caps <input type='checkbox' name="TITLE_ALL_CAPS" value='TRUE'/>
+      <br>
+      <br>
+      <text>Description:</text>
+      <br>
+      &emsp; Containing: <input type='text' name="DESC_CONTAIN"/>
+      <br>
+      &emsp; Not Containing: <input type='text' name="DESC_NOT_CONTAIN"/>
+      <br>
+      &emsp; Length Exceeding: <input type='number' name="DESC_EXCEED"/> Characters
+      <br>
+      &emsp; Length Less Than: <input type='number' name="DESC_LESS"/> Characters
+      <br>
+      &emsp; All-Caps <input type='checkbox' name="DESC_ALL_CAPS" value='TRUE'/>
+
+      <br>
+      <br>
+      Posted Before: <input type='datetime-local' step='1' name="BEFORE"/>
+      <br>
+      Posted After: <input type='datetime-local' step='1' name="AFTER"/>
+      <br>
+      <br>
+      View Count Exceeding: <input type='number' name="VIEW_EXCEED">
+      <br>
+      View Count Less Than: <input type='number' name="VIEW_LESS">
+      <br>
+      <br>
+      Like Count Exceeding: <input type='number' name="LIKE_EXCEED">
+      <br>
+      Like Count Less Than: <input type='number' name="LIKE_LESS">
+      <br>
+      <br>
+      Dislike Count Exceeding: <input type='number' name="DISLIKE_EXCEED">
+      <br>
+      Dislike Count Less Than: <input type='number' name="DISLIKE_LESS">
+      <br>
+      <br>
+      Comment Count Exceeding: <input type='number' name="COM_EXCEED">
+      <br>
+      Comment Count Less Than: <input type='number' name="COM_LESS">
+      <br>
+      <br>
+      Duration Exceeding: <input type='number' name="DURATION_EXCEED"> Seconds
+      <br>
+      Duration Less Than: <input type='number' name="DURATION_LESS"> Seconds
+      <br>
+      <br>
+      <text>Category: </text>
+      <select name='CATEGORY'>
+	<option value="">--</option>
+	<option value="AUTO">Autos & Vehicles</option>
+	<option value="CMD">Comedy</option>
+	<option value="EDU">Education</option>
+	<option value="ENT">Entertainment</option>
+	<option value="FILM">Film & Animation</option>
+	<option value="GAME">Gaming</option>
+	<option value="HOW">Howto & Style</option>
+	<option value="MUS">Music</option>
+	<option value="POL">News & Politics</option>
+	<option value="NON">Nonprofits & Activism</option>
+	<option value="PPL">People & Blogs</option>
+	<option value="PET">Pets & Animals</option>
+	<option value="SCI">Science & Technology</option>
+	<option value="SHOW">Shows</option>
+	<option value="SPT">Sports</option>
+	<option value="TRVL">Travel & Events</option>
+      </select>
+      <h3>Sort By:</h3>
+      <input type='radio' name='SORT' value='Video ID' checked='checked'>Video ID
+      <br>
+      <input type='radio' name='SORT' value='Channel ID'>Channel ID
+      <br>
+      <input type='radio' name='SORT' value='Title (alphabetic)'>Title (alphabetic)
+      <br>
+      <input type='radio' name='SORT' value='Title Length'>Title Length
+      <br>
+      <input type='radio' name='SORT' value='Description (alphabetic)'>Description (alphabetic)
+      <br>
+      <input type='radio' name='SORT' value='Description Length'>Description Length
+      <br>
+      <input type='radio' name='SORT' value='Datetime Posted'>Datetime Posted
+      <br>
+      <input type='radio' name='SORT' value='View Count'>View Count
+      <br>
+      <input type='radio' name='SORT' value='Like Count'>Like Count
+      <br>
+      <input type='radio' name='SORT' value='Dislike Count'>Dislike Count
+      <br>
+      <input type='radio' name='SORT' value='Comment Count'>Comment Count
+      <br>
+      <input type='radio' name='SORT' value='Duration'>Duration
+      <br>
+      <input type='radio' name='SORT' value='Category'>Category
+      <br>
+      <br>
+      <input type='radio' name='SORT_DIR' value='Ascending' checked='checked'>Sort Ascending
+      <input type='radio' name='SORT_DIR' value='Descending'>Sort Descending
+      <br>
+      <h3>Include Summary Statistics:</h3>
+      <input type='checkbox' name='GET_COUNT' value='TRUE'>Result Count
+      <br>
+      <input type='checkbox' name='GET_PER' value='TRUE'>Result Count as Percentage of Total
+      <br>
+      <br>
+      <text>View Count</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_VIEW' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_VIEW' value='TRUE'>Maximum
+      <br>
+      &emsp;<input type='checkbox' name='MIN_VIEW' value='TRUE'>Minimum
+      <br>
+      &emsp;<input type='checkbox' name='STD_VIEW' value='TRUE'>Standard Deviation
+      <br>
+      <br>
+      <text>Like Count</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_LIKE' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_LIKE' value='TRUE'>Maximum
+      <br>
+      &emsp;<input type='checkbox' name='MIN_LIKE' value='TRUE'>Minimum
+      <br>
+      &emsp;<input type='checkbox' name='STD_LIKE' value='TRUE'>Standard Deviation
+      <br>
+      <br>
+      <text>Dislike Count</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_DISLIKE' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_DISLIKE' value='TRUE'>Maximum
+      <br>
+      &emsp;<input type='checkbox' name='MIN_DISLIKE' value='TRUE'>Minimum
+      <br>
+      &emsp;<input type='checkbox' name='STD_DISLIKE' value='TRUE'>Standard Deviation
+      <br>
+      <br>
+      <text>Comment Count</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_COM' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_COM' value='TRUE'>Maximum
+      <br>
+      &emsp;<input type='checkbox' name='MIN_COM' value='TRUE'>Minimum
+      <br>
+      &emsp;<input type='checkbox' name='STD_COM' value='TRUE'>Standard Deviation
+      <br>
+      <br>
+      <text>Datetime Posted</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_DATE' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_DATE' value='TRUE'>Most Recent
+      <br>
+      &emsp;<input type='checkbox' name='MIN_DATE' value='TRUE'>Earliest
+      <br>
+      &emsp;<input type='checkbox' name='STD_DATE' value='TRUE'>Standard Deviation (in days)
+      <br>
+      <br>
+      <text>Title Length</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_TITLE' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_TITLE' value='TRUE'>Maximum
+      <br>
+      &emsp;<input type='checkbox' name='MIN_TITLE' value='TRUE'>Minimum
+      <br>
+      &emsp;<input type='checkbox' name='STD_TITLE' value='TRUE'>Standard Deviation
+      <br>
+      <br>
+      <text>Description Length</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_DESC' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_DESC' value='TRUE'>Maximum
+      <br>
+      &emsp;<input type='checkbox' name='MIN_DESC' value='TRUE'>Minimum
+      <br>
+      &emsp;<input type='checkbox' name='STD_DESC' value='TRUE'>Standard Deviation
+      <br>
+      <br>
+      <text>Duration</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_DURATION' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_DURATION' value='TRUE'>Maximum
+      <br>
+      &emsp;<input type='checkbox' name='MIN_DURATION' value='TRUE'>Minimum
+      <br>
+      &emsp;<input type='checkbox' name='STD_DURATION' value='TRUE'>Standard Deviation
+      <br>
+      <br>
+      Pearson Correlation Coefficient Between <select name='CORRELATION_FIRST'>
+	<option value=''>--</option>
+	<option value='View Count'>View Count</option>
+	<option value='Like Count'>Like Count</option>
+	<option value='Dislike Count'>Dislike Count</option>
+	<option value='Comment Count'>Comment Count</option>
+	<option value='Datetime Posted'>Datetime Posted</option>
+	<option value='Length of Title'>Length of Title</option>
+	<option value='Length of Description'>Length of Description</option>
+	<option value='Duration'>Duration</option>
+      </select> and <select name='CORRELATION_SECOND'>
+	<option value=''>--</option>
+        <option value='View Count'>View Count</option>
+        <option value='Like Count'>Like	Count</option>
+        <option value='Dislike Count'>Dislike Count</option>
+	<option value='Comment Count'>Comment Count</option>
+        <option value='Datetime Posted'>Datetime Posted</option>
+        <option value='Length of Title'>Length of Title</option>
+        <option value='Length of Description'>Length of	Description</option>
+        <option value='Duration'>Duration</option>
+      </select>
+      <br>
+      Average Ratio of <select name='RATIO_FIRST'>
+	<option value=''>--</option>
+        <option value='View Count'>View Count</option>
+        <option value='Like Count'>Like	Count</option>
+        <option value='Dislike Count'>Dislike Count</option>
+	<option value='Comment Count'>Comment Count</option>
+        <option value='Length of Title'>Length of Title</option>
+        <option value='Length of Description'>Length of	Description</option>
+        <option value='Duration'>Duration</option>
+      </select> to <select name='RATIO_SECOND'>
+	<option value=''>--</option>
+	<option value='View Count'>View Count</option>
+        <option value='Like Count'>Like Count</option>
+        <option value='Dislike Count'>Dislike Count</option>
+	<option value='Comment Count'>Comment Count</option>
+        <option value='Length of Title'>Length of Title</option>
+        <option value='Length of Description'>Length of Description</option>
+        <option value='Duration'>Duration</option>
+      </select>
+      <h3>Include Columns:</h3>
+      <input type='checkbox' name='GET_VIDEO_ID' value='TRUE'>Video ID
+      <br>
+      <input type='checkbox' name='GET_CHANNEL_ID' value='TRUE'>Channel ID
+      <br>
+      <input type='checkbox' name='GET_TITLE' value='TRUE'>Title
+      <br>
+      <input type='checkbox' name='GET_DESC' value='TRUE'>Description
+      <br>
+      <input type='checkbox' name='GET_DATE' value='TRUE'>Datetime Posted
+      <br>
+      <input type='checkbox' name='GET_VIEWS' value='TRUE'>View Count
+      <br>
+      <input type='checkbox' name='GET_LIKES' value='TRUE'>Like Count
+      <br>
+      <input type='checkbox' name='GET_DISLIKES' value='TRUE'>Dislike Count
+      <br>
+      <input type='checkbox' name='GET_COM' value='TRUE'>Comment Count
+      <br>
+      <input type='checkbox' name='GET_DURATION' value='TRUE'>Duration
+      <br>
+      <input type='checkbox' name='GET_CATEGORY' value='TRUE'>Category
+      <br>
+      <br>
+      <input type='submit' value='Submit Query'/>
+    </form>
+  </body>
+</html>

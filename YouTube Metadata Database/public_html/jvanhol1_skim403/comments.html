@@ -1,0 +1,130 @@
+<html>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <body>
+    <h2>Query Comments</h2>
+    <form action="home.html" method="post">
+      <input type='submit' value='Return to Home'/>
+    </form>
+    <h3>Filter By:</h3>
+    <form action="submitComments.php" method="post">
+      Maximum Number of Results to Retrieve: <input type='number' name="MAX_RESULTS"/>
+      <br>
+      <br>
+      Must Contain the Following Comment ID: <input type='text' name="COM_ID"/>
+      <br>
+      <br>
+      Must be Posted by Author with Channel ID: <input type='text' name="AUTH_ID"/>
+      <br>
+      <br>
+      Must be a Commment on Video with ID: <input type='text' name="VIDEO_ID"/>
+      <br>
+      <br>
+      <text>Comment:</text>
+      <br>
+      &emsp; Containing: <input type='text' name="COM_CONTAIN"/>
+      <br>
+      &emsp; Not Containing: <input type='text' name="COM_NOT_CONTAIN"/>
+      <br>
+      &emsp; Length Exceeding: <input type='number' name="COM_EXCEED"/> Characters
+      <br>
+      &emsp; Length Less Than: <input type='number' name="COM_LESS"/> Characters
+      <br>
+<!--      &emsp; Containing a Substring of its Video's Title <input type='checkbox' name='CONTAIN_SUB' value='TRUE'/>
+      <br>-->
+      &emsp; All-Caps <input type='checkbox' name='ALL_CAPS' value='TRUE'/>
+      <br>
+      <br>
+      Posted Before: <input type='datetime-local' step='1' name="BEFORE"/>
+      <br>
+      Posted After: <input type='datetime-local' step='1' name="AFTER"/>
+      <br>
+      <br>
+      Posted within: <input type='number' name='BEFORE_CREATED_VIDEO_SEC'/> seconds, <input type='number' name='BEFORE_CREATED_VIDEO_MIN'/> minutes, <input type='number' name='BEFORE_CREATED_VIDEO_HR'/> hours, and <input type='number' name='BEFORE_CREATED_VIDEO_DAY'/> days of the video's post date
+      <br>
+      Posted after: <input type='number' name='AFTER_CREATED_VIDEO_SEC'/> seconds, <input type='number' name='AFTER_CREATED_VIDEO_MIN'/> minutes, <input type='number' name='AFTER_CREATED_VIDEO_HR'/> hours, and <input type='number' name='AFTER_CREATED_VIDEO_DAY'/> days from the video's post date
+      <br>
+      <br>
+      Like Count Exceeding: <input type='number' name='LIKE_EXCEED'>
+      <br>
+      Like Count Less Than: <input type='number' name='LIKE_LESS'>
+      <h3>Sort By:</h3>
+      <input type='radio' name='SORT' value='Comment ID' checked='checked'>Comment ID
+      <br>
+      <input type='radio' name='SORT' value='Author Channel ID'>Author Channel ID
+      <br>
+      <input type='radio' name='SORT' value='Video ID Posted On'>Video ID Posted On
+      <br>
+      <input type='radio' name='SORT' value='Datetime Posted'>Datetime Posted
+      <br>
+      <input type='radio' name='SORT' value='Comment (alphabetic)'>Comment (alphabetic)
+      <br>
+      <input type='radio' name='SORT' value='Comment Length'>Comment Length
+      <br>
+      <input type='radio' name='SORT' value='Like Count'>Like Count
+      <br>
+      <br>
+      <input type='radio' name='SORT_DIR' value='Ascending' checked='checked'>Sort Ascending
+      <input type='radio' name='SORT_DIR' value='Descending'>Sort Descending
+      <br>
+      <h3>Include Summary Statistics:</h3>
+      <input type='checkbox' name='GET_COUNT' value='TRUE'>Result Count
+      <br>
+      <input type='checkbox' name='GET_PER' value='TRUE'>Result Count as Percentage of Total
+      <br>
+      <br>
+      <text>Like Count</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_LIKE' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_LIKE' value='TRUE'>Maximum
+      <br>
+      &emsp;<input type='checkbox' name='MIN_LIKE' value='TRUE'>Minimum
+      <br>
+      &emsp;<input type='checkbox' name='STD_LIKE' value='TRUE'>Standard Deviation
+      <br>
+      <br>
+      <text>Datetime Created</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_DATE' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_DATE' value='TRUE'>Most Recent
+      <br>
+      &emsp;<input type='checkbox' name='MIN_DATE' value='TRUE'>Earliest
+      <br>
+      &emsp;<input type='checkbox' name='STD_DATE' value='TRUE'>Standard Deviation (in days)
+      <br>
+      <br>
+
+      <text>Comment Length</text>
+      <br>
+      &emsp;<input type='checkbox' name='AVE_COM' value='TRUE'>Average
+      <br>
+      &emsp;<input type='checkbox' name='MAX_COM' value='TRUE'>Maximum
+      <br>
+      &emsp;<input type='checkbox' name='MIN_COM' value='TRUE'>Minimum
+      <br>
+      &emsp;<input type='checkbox' name='STD_COM' value='TRUE'>Standard Deviation
+      <br>
+      <br>
+      Pearson Correlation Coefficient Between <select name='CORRELATION_FIRST'> <option value=''>--</option> <option value='Like Count'>Like Count</option><option value='Datetime Posted'>Datetime Posted</option><option value='Length of Comment'>Length of Comment</option></select> and <select name='CORRELATION_SECOND'> <option value=''>--</option> <option value='Like Count'>Like Count</option><option value='Datetime Posted'>Datetime Posted</option><option value='Length of Comment'>Length of Comment</option></select>
+      <br>
+      Average Ratio of <select name='RATIO_FIRST'> <option value=''>--</option> <option value='Like Count'>Like Count</option><option value='Length of Comment'>Length of Comment</option></select> to <select name='RATIO_SECOND'> <option value=''>--</option> <option value='Like Count'>Like Count</option><option value='Length of Comment'>Length of Title</option></select>
+      <h3>Include Columns:</h3>
+      <input type='checkbox' name='GET_COM_ID' value='TRUE'>Comment ID
+      <br>
+      <input type='checkbox' name='GET_AUTH_ID' value='TRUE'>Author Channel ID
+      <br>
+      <input type='checkbox' name='GET_VIDEO_ID' value='TRUE'>Video ID Posted On
+      <br>
+      <input type='checkbox' name='GET_DATE' value='TRUE'>Datetime Posted
+      <br>
+      <input type='checkbox' name='GET_LIKE' value='TRUE'>Like Count
+      <br>
+      <input type='checkbox' name='GET_COM' value='TRUE'>Comment
+      <br>
+      <input type='checkbox' name='GET_VIDEO' value='TRUE'>Video Title
+      <br>
+      <input type='submit' value='Submit Query'/>
+    </form>
+  </body>
+</html>
